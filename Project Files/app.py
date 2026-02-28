@@ -6,7 +6,7 @@ from PIL import Image
 #load environment variables from .env file
 load_dotenv()
 api_key = os.getenv("GOOGLE_API_KEY")
-genai.configure(api_key=AIzaSyA7m4LpRaWb4CPNNnIJvKhCFe9fSmq-37U)
+genai.configure(api_key=api_key)
 # Function to get Gemini response
 def get_gemini_response(input_text, image, prompt):
   model = genai.GenerativeModel("gemini-2.5-flash")
@@ -48,4 +48,5 @@ if submit:
     st.subheader("📜 Generated Artifact Description:")
     st.write(response)
   except Exception as e:
+
     st.error(f"⚠️ Error: {str(e)}")
